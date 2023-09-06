@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -18,7 +19,8 @@ class PageController extends Controller
         return view("front.pages.product");
     }
     public function hakkimizda(){
-        return view("front.pages.about");
+        $abouts=About::where("id",1)->get();
+        return view("front.pages.about",compact("abouts"));
     }
     public function iletisim(){
         return view("front.pages.contact");

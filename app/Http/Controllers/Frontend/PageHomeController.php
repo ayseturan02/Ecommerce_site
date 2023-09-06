@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Category;
 use App\Models\Slider;
 
@@ -14,6 +15,8 @@ class PageHomeController extends Controller
         $title="Anasayfa";
 
         $categories=Category::where("status","1")->get();
-        return view("front.pages.index" ,compact("sliders","title", "categories"));
+
+        $abouts=About::where("id",1)->get();
+        return view("front.pages.index" ,compact("sliders","title", "categories","abouts"));
     }
 }
