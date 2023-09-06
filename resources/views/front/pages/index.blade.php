@@ -1,7 +1,8 @@
 @extends("front.layout.layout")
 @section("content")
-    @foreach($sliders as $slider) @endforeach
-    <div class="site-blocks-cover" style="background-image:url({{asset("front/images/".$slider->image ?? "none")}});" alt="{{$slider->id}}" data-aos="fade">
+    <div>
+    @foreach($sliders as $slider)
+    <div class="site-blocks-cover" style="background-image:url({{asset("front/images/".$slider->image)}});" alt="{{$slider->id}}" data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end">
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -17,6 +18,8 @@
         </div>
     </div>
 
+    @endforeach
+    </div>
     <div class="site-section site-section-sm site-blocks-1">
         <div class="container">
             <div class="row">

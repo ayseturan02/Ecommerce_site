@@ -9,7 +9,8 @@ use App\Models\Slider;
 class PageHomeController extends Controller
 {
     public function anasayfa(){
-        $sliders=Slider::where("status","1")->first();
+
+        $sliders=Slider::where("status","1")->get();
         $title="Anasayfa";
 
         $categories=Category::where("status","1")->get();

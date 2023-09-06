@@ -42,22 +42,22 @@
                 <li class="has-children">
                     <a href="#">Kategori</a>
                     <ul class="dropdown">
-                        @if(!empty($categories) && $categories->count()>0)
-                         @foreach($categories as $category)
-                                <li><a href="#">{{$category->name}}</a></li>
-                        {{--    <li><a href="#"></a></li>
-                                <li><a href="#">Menu Three</a></li>
-                                <li class="has-children">
-                                    <a href="#">sub menu</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Menu One</a></li>
-                                        <li><a href="#">Menu Two</a></li>
-                                        <li><a href="#">Menu Three</a></li>
-                                    </ul>
-                                </li>  --}}
-                         @endforeach
-                        @endif
 
+                        @if(!empty($categories) && $categories->count()>0)
+                            @foreach($categories as $category)
+                                <li><a href="#">{{$category->name}}</a></li>
+                                {{--    <li><a href="#"></a></li>
+                                        <li><a href="#">Menu Three</a></li>
+                                        <li class="has-children">
+                                            <a href="#">sub menu</a>
+                                            <ul class="dropdown">
+                                                <li><a href="#">Menu One</a></li>
+                                                <li><a href="#">Menu Two</a></li>
+                                                <li><a href="#">Menu Three</a></li>
+                                            </ul>
+                                        </li>  --}}
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
                 <li ><a href="{{route("hakkimizda")}}">HAKKIMIZDA</a></li>
