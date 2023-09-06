@@ -17,20 +17,21 @@
                     </div>
                 </div>
             </div>
+            @foreach($settings as $setting)
             <div class="col-md-6 col-lg-3 mb-4 mb-lg-6">
                 <div class="col-md-6 col-lg-6">
                     <div class="block-5 mb-5">
                         <h3 class="footer-heading mb-4">İletişim</h3>
                         <ul class="list-unstyled">
-                            <li class="address">Adres</li>
-                            <li class="phone"><a href="tel://23923929210">398793874</a></li>
-                            <li class="email">emailaddress@domain.com</li>
+                            <li class="address">{{$setting["adres"]}}</li>
+                            <li class="phone"><a href="tel://23923929210">{{$setting["phone"]}}</a></li>
+                            <li class="email">{{$setting["email"]}}</li>
                         </ul>
                     </div>
 
                 </div>
             </div>
-
+            @endforeach
         </div>
         <div class="row pt-5 mt-5 text-center">
             <div class="col-md-12">

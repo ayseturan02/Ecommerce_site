@@ -17,6 +17,9 @@ class PageHomeController extends Controller
         $categories=Category::where("status","1")->get();
 
         $abouts=About::where("id",1)->get();
-        return view("front.pages.index" ,compact("sliders","title", "categories","abouts"));
+
+        $settings=About::where("name","data")->get();
+
+        return view("front.pages.index" ,compact("sliders","title", "categories","abouts","settings"));
     }
 }
