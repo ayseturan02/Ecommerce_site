@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\SiteSetting;
 use Illuminate\Database\Seeder;
 
+
 class SiteSettingSeeder extends Seeder
 {
     /**
@@ -16,7 +17,7 @@ class SiteSettingSeeder extends Seeder
     {
         SiteSetting::create([
             'name'=>"adres",
-            "data"=>"adres bilgileri burada"
+            "data"=>"adres bilgileri burada",
         ]);
 
         SiteSetting::create([

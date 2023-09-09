@@ -18,36 +18,38 @@
                 </div>
                 <div class="col-md-7">
 
-                    <form action="#" method="post">
+                    @if(session("success"))
+                    <div class="alert alert-success">
+                        {{session()->get("success")}}
+                    </div>
+                    @endif
 
+                    <form action="{{route("iletisim.kaydet")}}" method="post">
+                            @csrf
                         <div class="p-3 p-lg-5 border">
                             <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="c_fname" name="c_fname">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="c_lname" name="c_lname">
+                                <div class="col-md-12">
+                                    <label for="c_fname" class="text-black">Ad Soyad <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="c_fname" name="name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
+                                    <label for="c_email" class="text-black">Eposta <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="c_email" name="email" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_subject" class="text-black">Subject </label>
-                                    <input type="text" class="form-control" id="c_subject" name="c_subject">
+                                    <label for="c_subject" class="text-black">Konu </label>
+                                    <input type="text" class="form-control" id="c_subject" name="subject">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_message" class="text-black">Message </label>
-                                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                                    <label for="c_message" class="text-black">Mesaj</label>
+                                    <textarea name="message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -5,25 +5,25 @@ namespace App\Http\Middleware;
 use App\Models\SiteSetting;
 use Closure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 
 
 class SiteSettingMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
-    public function handle(Request $request, Closure $next)
+
+    public function handle(Request $request, Closure $next): Response
     {
-        $settings=SiteSetting::pluck("data","name");
+        $settings=SiteSetting::pluck("data","name")- $this->toArray();
 
         view()->share(["sitesetting"=>$settings]);
 
         return $next($request);
+    }
+
+    private function toArray()
+    {
+
     }
 }
