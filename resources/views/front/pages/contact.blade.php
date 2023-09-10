@@ -14,17 +14,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="h3 mb-3 text-black">Get In Touch</h2>
+                    <h2 class="h3 mb-3 text-black">İLETİSİM</h2>
                 </div>
                 <div class="col-md-7">
 
-                    @if(session("success"))
+                    @if(session("message"))
                     <div class="alert alert-success">
-                        {{session()->get("success")}}
+                        {{session()->get("message")}}
                     </div>
                     @endif
 
-                    <form action="{{route("iletisim.kaydet")}}" method="post">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+
+                        <form action="{{route("iletisim.kaydet")}}" method="post">
                             @csrf
                         <div class="p-3 p-lg-5 border">
                             <div class="form-group row">
@@ -54,27 +65,27 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-12">
-                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">Gönder<button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
+
                 <div class="col-md-5 ml-auto">
                     <div class="p-4 border mb-3">
-                        <span class="d-block text-primary h6 text-uppercase">New York</span>
-                        <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <span class="d-block text-primary h6 text-uppercase">Adres</span>
+                        <p class="mb-0"></p>
                     </div>
                     <div class="p-4 border mb-3">
-                        <span class="d-block text-primary h6 text-uppercase">London</span>
-                        <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
                     </div>
                     <div class="p-4 border mb-3">
-                        <span class="d-block text-primary h6 text-uppercase">Canada</span>
-                        <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
                     </div>
 
                 </div>
+
             </div>
         </div>
     </div>
