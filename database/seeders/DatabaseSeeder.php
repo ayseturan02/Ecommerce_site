@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\SiteSetting;
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -26,7 +27,8 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             CategorySeeder::class,
             AboutSeeder::class,
-            SiteSettingSeeder::class
+            SiteSettingSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }
