@@ -8,29 +8,32 @@
             </div>
         </div>
     </div>
-@foreach($products as $product) @endforeach
+
+
+
     <div class="site-section">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{asset("front/images/cloth_1.jpg")}}" alt="Image" class="img-fluid">
+                    <img src="{{asset("front/images/".$products->image ?? "")}}"  alt="Image" class="img-fluid">
                 </div>
-                <div class="col-md-6">
-                    <h2 class="text-black">{{$product->name ?? " "}}</h2>
-                    {{$product->content ?? " "}}
-                    <p><strong class="text-primary h4">{{$product->price ?? " "}}</strong></p>
+                <div class="col-md-6" {{$products->id ?? ""}}>
+                    <h2 class="text-black">{{$products->name ?? ""}}</h2>
+                    {{$products->content ?? " "}}
+                    <p><strong class="text-primary h4">fiyat : ${{$products->price ?? ""}}</strong></p>
                     <div class="mb-1 d-flex">
                         <label for="option-sm" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
+                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">35</span>
                         </label>
                         <label for="option-md" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">Medium</span>
+                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">37</span>
                         </label>
                         <label for="option-lg" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">Large</span>
+                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">39</span>
                         </label>
                         <label for="option-xl" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra Large</span>
+                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> 41</span>
                         </label>
                     </div>
                     <div class="mb-5">
@@ -45,10 +48,11 @@
                         </div>
 
                     </div>
-                    <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+                    <p><a href="{{route("sepet")}}" class="buy-now btn btn-sm btn-primary">sepete ekle</a></p>
 
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -68,7 +72,7 @@
                                     <img src="{{asset("front/images/cloth_1.jpg")}}" alt="Image placeholder" class="img-fluid">
                                 </figure>
                                 <div class="block-4-text p-4">
-                                    <h3><a href="{{route("urundetay")}}">Tank Top</a></h3>
+                                    <h3><a href="#">Tank Top</a></h3>
                                     <p class="mb-0">Finding perfect t-shirt</p>
                                     <p class="text-primary font-weight-bold">$50</p>
                                 </div>

@@ -18,7 +18,7 @@ class PageController extends Controller
         return view("front.pages.products");
     }
     public function urundetay($slug){
-        $products=Product::where("slug",$slug)->first();
+        $products=Product::whereSlug($slug)->first();
         return view("front.pages.product",compact("products"));
     }
     public function hakkimizda(){
