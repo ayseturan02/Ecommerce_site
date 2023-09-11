@@ -16,27 +16,28 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            "name"=>"Urun 1",
-            "category_id"=>1,
-            "short_text"=>"Kısabilgi",
-            "price"=>100,
-            "size"=>"small",
-            "color"=>"Beyaz",
-            "qty"=>10,
-            "status"=>"1",
-            "content"=>"yazarız",
+            "name" => "Urun 1",
+            "image"=>"1.jpg",
+            "category_id" => 1,
+            "short_text" => "Kısabilgi",
+            "price" => 100,
+            "size" => "small",
+            "color" => "Beyaz",
+            "qty" => 10,
+            "status" => "1",
+            "content" => "yazarız",
         ]);
-
         Product::create([
-            "name"=>"Urun 1",
-            "category_id"=>1,
-            "short_text"=>"Kısabilgi",
-            "price"=>100,
-            "size"=>"large",
-            "color"=>"siyah",
-            "qty"=>5,
-            "status"=>"1",
-            "content"=>"yazarız",
+            "name" => "Urun 1",
+            "image"=>"1.jpg",
+            "category_id" => 1,
+            "short_text" => "Kısabilgi",
+            "price" => 100,
+            "size" => "large",
+            "color" => "siyah",
+            "qty" => 5,
+            "status" => "1",
+            "content" => "yazarız",
         ]);
     }
 }
