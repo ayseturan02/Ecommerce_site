@@ -20,7 +20,7 @@ Route::group(["Middleware"=>"sitesetting"],function (){
     Route::get("/",[PageHomeController::class,"anasayfa"])->name("anasayfa");
     Route::get("/hakkimizda",[PageController::class,"hakkimizda"])->name("hakkimizda");
     Route::get("/iletisim",[PageController::class,"iletisim"])->name("iletisim");
-    Route::get("/urun/detay",[PageController::class,"urundetay"])->name("urundetay");
+    Route::get("/urun/{slug}",[PageController::class,"urundetay"])->name("urundetay");
     Route::get("/urunler",[PageController::class,"urunler"])->name("urunler");
     Route::get("/erkek-ayakkabı",[PageController::class,"urunler"])->name("erkekurunler");
     Route::get("/kadın-ayakkabı",[PageController::class,"urunler"])->name("kadınurunler");

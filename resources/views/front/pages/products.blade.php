@@ -50,10 +50,10 @@
                         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" >
                             <div class="block-4 text-center border">
                                 <figure class="block-4-image">
-                                    <a href="{{route("urundetay")}}"><img src="{{asset("front/images/".$product->image)}}" {{$product->id}} alt="Image placeholder" class="img-fluid"></a>
+                                    <a href="{{route("urundetay",$product->slug)}}"><img src="{{asset("front/images/".$product->image)}}" {{$product->id}} alt="Image placeholder" class="img-fluid"></a>
                                 </figure>
                                 <div class="block-4-text p-4">
-                                    <h3><a href="{{route("urundetay")}}">{{$product->name}}</a></h3>
+                                    <h3><a href="{{route("urundetay",$product->slug)}}">{{$product->name}}</a></h3>
                                     <p class="mb-0">{{$product->short_text}}</p>
                                     <p class="text-primary font-weight-bold">{{$product->price}}</p>
                                 </div>
@@ -64,9 +64,13 @@
                     </div>
 
                     <div class="row" data-aos="fade-up">
-                        <div class="col-md-12 text-center">
+                        {{$products->links("pagination::bootstrap-4")}}
+
+                      {{--  <div class="col-md-12 text-center">
                             <div class="site-block-27">
+
                                 <ul>
+
                                     <li><a href="#">&lt;</a></li>
                                     <li class="active"><span>1</span></li>
                                     <li><a href="#">2</a></li>
@@ -77,6 +81,7 @@
                                 </ul>
                             </div>
                         </div>
+                        --}}
                     </div>
                 </div>
 

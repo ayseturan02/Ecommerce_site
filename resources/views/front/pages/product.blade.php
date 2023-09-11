@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-
+@foreach($products as $product) @endforeach
     <div class="site-section">
         <div class="container">
             <div class="row">
@@ -16,10 +16,9 @@
                     <img src="{{asset("front/images/cloth_1.jpg")}}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="text-black">Tank Top T-Shirt</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.</p>
-                    <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-                    <p><strong class="text-primary h4">$50.00</strong></p>
+                    <h2 class="text-black">{{$product->name ?? " "}}</h2>
+                    {{$product->content ?? " "}}
+                    <p><strong class="text-primary h4">{{$product->price ?? " "}}</strong></p>
                     <div class="mb-1 d-flex">
                         <label for="option-sm" class="d-flex mr-3 mb-3">
                             <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
