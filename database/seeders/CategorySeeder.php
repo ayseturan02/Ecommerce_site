@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
       $erkek=Category::create([
-            "image" => null,
+            "image" => "erkek1.jpeg",
             "thumbnail"=>null,
             "cat_ust"=>null,
             "name" => "Erkek",
@@ -26,17 +26,8 @@ class CategorySeeder extends Seeder
             "status" => "1"
         ]);
 
-            Category::create([
-                "image" => null,
-                "thumbnail"=>null,
-                "cat_ust"=>$erkek->id,
-                "name" => "Erkek Converse",
-                "content" => "Erkek Converseler",
-                "status" => "1"
-        ]);
-
       $kadın=Category::create([
-            "image" => null,
+            "image" => "kadın1.jpeg",
             "thumbnail"=>null,
             "cat_ust"=>null,
             "name" => "Kadın",
@@ -44,30 +35,15 @@ class CategorySeeder extends Seeder
             "status" => "1"
         ]);
 
-        Category::create([
-            "image" => null,
-            "thumbnail"=>null,
-            "cat_ust"=>$kadın->id,
-            "name" => "Kadın Converse",
-            "content" => "Kadın Converseler",
-            "status" => "1"
-        ]);
 
         $cocuk=Category::create([
-            "image" => null,
+            "image" => "cocuk1.jpeg",
             "thumbnail"=>null,
             "cat_ust"=>null,
-            "name" => "Çocuk",
+            "name" => "Cocuk",
             "content" => "Çocuk Ayakkabı",
             "status" => "1"
         ]);
-        Category::create([
-            "image" => null,
-            "thumbnail"=>null,
-            "cat_ust"=>$cocuk->id,
-            "name" => "Çocuk Converse",
-            "content" => "Çocuk Converseler",
-            "status" => "1"
-        ]);
+
     }
 }

@@ -22,9 +22,9 @@ Route::group(["Middleware"=>"sitesetting"],function (){
     Route::get("/iletisim",[PageController::class,"iletisim"])->name("iletisim");
     Route::get("/urun/{slug}",[PageController::class,"urundetay"])->name("urundetay");
     Route::get("/urunler",[PageController::class,"urunler"])->name("urunler");
-    Route::get("/erkek-ayakkabı",[PageController::class,"urunler"])->name("erkekurunler");
-    Route::get("/kadın-ayakkabı",[PageController::class,"urunler"])->name("kadınurunler");
-    Route::get("/cocuk-ayakkabı",[PageController::class,"urunler"])->name("cocukurunler");
+    Route::get("/erkek-ayakkabı",[PageController::class,"urunler"])->name("Erkekurunler");
+    Route::get("/kadın-ayakkabı",[PageController::class,"urunler"])->name("Kadınurunler");
+    Route::get("/cocuk-ayakkabı",[PageController::class,"urunler"])->name("Cocukurunler");
     Route::get("/indirimdekiler",[PageController::class,"indirimdekiurunler"])->name("indirimdekiurunler");
     Route::get("/sepet",[PageController::class,"cart"])->name("sepet");
 

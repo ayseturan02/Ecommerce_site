@@ -45,7 +45,7 @@
 
                         @if(!empty($categories) && $categories->count()>0)
                             @foreach($categories as $category)
-                                <li><a href="#">{{$category->name}}</a></li>
+                                <li><a href="{{route($category->slug."urunler")}}">{{$category->name}}</a></li>
                                 {{--    <li><a href="#"></a></li>
                                         <li><a href="#">Menu Three</a></li>
                                         <li class="has-children">
@@ -60,8 +60,9 @@
                         @endif
                     </ul>
                 </li>
-                <li ><a href="{{route("hakkimizda")}}">HAKKIMIZDA</a></li>
                 <li><a href="{{route("urunler")}}">ÜRÜNLER</a></li>
+
+                <li ><a href="{{route("hakkimizda")}}">HAKKIMIZDA</a></li>
 
                 <li><a href="{{route("iletisim")}}">İLETİŞİM</a></li>
             </ul>

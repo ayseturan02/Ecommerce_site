@@ -20,6 +20,7 @@ class AboutSeeder extends Seeder
         About::create([
 
             "name"=>"Eticaret",
+            "image"=>"2.webp",
             "content"=>"hakkımızda yazısı burda",
             "text_1_icon"=>"icon-truck",
             "text_1"=>"Ücretsiz kargo",
