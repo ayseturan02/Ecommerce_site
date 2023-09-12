@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="{{asset("front/css/owl.carousel.min.css")}}">
     <link rel="stylesheet" href="{{asset("front/css/owl.theme.default.min.css")}}">
 
-
     <link rel="stylesheet" href="{{asset("front/css/aos.css")}}">
-
+@yield("customjs")
     <link rel="stylesheet" href="{{asset("front/css/style.css")}}">
 
 </head>

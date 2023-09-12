@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
     {
         Product::create([
             "name" => "Urun 1",
-            "image"=>"1.jpg",
+            "image"=>"urun1.jpeg",
             "category_id" => 1,
             "short_text" => "Kısabilgi",
             "price" => 100,
-            "size" => "small",
+            "size" => "35",
             "color" => "Beyaz",
             "qty" => 10,
             "status" => "1",
@@ -29,11 +29,11 @@ class ProductSeeder extends Seeder
         ]);
         Product::create([
             "name" => "Urun 1",
-            "image"=>"1.jpg",
+            "image"=>"urun2.jpeg",
             "category_id" => 1,
             "short_text" => "Kısabilgi",
-            "price" => 100,
-            "size" => "large",
+            "price" => 300,
+            "size" => "37",
             "color" => "siyah",
             "qty" => 5,
             "status" => "1",

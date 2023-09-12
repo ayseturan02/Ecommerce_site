@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
 class Product extends Model
 {
@@ -21,6 +22,10 @@ class Product extends Model
         "status",
         "content",
     ];
+
+    public function category(){
+     return $this->hasOne(Category::class,"id","category_id");
+    }
     public function sluggable(): array
     {
         return [
