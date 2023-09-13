@@ -33,7 +33,8 @@
                                         <div class="block-4-text p-4">
                                             <h3><a href="{{route("urundetay",$product->slug)}}">{{$product->name}}</a></h3>
                                             <p class="mb-0">{{$product->short_text}}</p>
-                                            <p class="text-primary font-weight-bold">{{$product->price}}</p>
+                                            <p class="text-primary font-weight-bold">${{$product->price}}</p>
+                                            <p><a href="{{route("sepet")}}" class="buy-now btn btn-sm btn-primary">sepete ekle</a></p>
                                         </div>
                                     </div>
                                 </div>

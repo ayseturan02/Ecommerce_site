@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\PageHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +27,10 @@ Route::group(["Middleware"=>"sitesetting"],function (){
     Route::get("/kadın-ayakkabı",[PageController::class,"kadinurunler"])->name("Kadınurunler");
     Route::get("/cocuk-ayakkabı",[PageController::class,"cocukurunler"])->name("Cocukurunler");
     Route::get("/indirimdekiler",[PageController::class,"indirimdekiurunler"])->name("indirimdekiurunler");
-    Route::get("/sepet",[PageController::class,"cart"])->name("sepet");
+
+    Route::get("/sepet",[CartController::class,"index"])->name("sepet");
+    Route::post("/sepet/ekle",[CartController::class,"add"])->name("sepet.add");
+    Route::post("/sepet/çıkar",[CartController::class,"remove"])->name("sepet.remove");
 
     Route::get("/iletişim",[PageController::class,"iletisim"])->name("iletisim");
     Route::post("/iletisim/kaydet",[AjaxController::class,"iletisimkaydet"])->name("iletisim.kaydet");
