@@ -43,6 +43,8 @@ class PageController extends Controller
          $categories = Category::where("status","1")->where("cat_ust",null)->withCount("items")->get();
         return view("front.pages.products",compact("products","categories","minprice","maxprice","sizelists","colors"));
     }
+
+
     public function indirimdekiurunler(){
         return view("front.pages.products");
     }
@@ -60,6 +62,19 @@ class PageController extends Controller
 
     public function cart(){
         return view("front.pages.cart");
+    }
+    public function erkekurunler(){
+        $products=Product::where("short_text","erkek")->get();
+        return view("front.pages.categories.man",compact("products"));
+    }
+    public function kadinurunler(){
+        $products=Product::where("short_text","kadın")->get();
+        return view("front.pages.categories.woman",compact("products"));
+
+    }
+    public function cocukurunler(){
+        $products=Product::where("short_text","cocuk")->get();
+        return view("front.pages.categories.children",compact("products"));
     }
 
     public function index()

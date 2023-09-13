@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Slider;
 
 class PageHomeController extends Controller
@@ -20,6 +21,8 @@ class PageHomeController extends Controller
 
         $settings=About::where("name","data")->get();
 
-        return view("front.pages.index" ,compact("sliders","title", "categories","abouts","settings"));
+        $products=Product::where("status","1")->get();
+
+        return view("front.pages.index" ,compact("sliders","title", "categories","abouts","settings","products"));
     }
 }

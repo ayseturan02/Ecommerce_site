@@ -59,39 +59,24 @@
     <div class="site-section site-blocks-2">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="{{route("Kadınurunler")}}">
-                        <figure class="image">
-                            <img src="{{asset("front/images/women.jpg")}}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Ayakkabı</span>
-                            <h3>Kadın</h3>
+
+                @if(!empty($categories))
+                    @foreach($categories as $category)
+                        <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+                            <a class="block-2-item" href="{{route($category->slug."urunler")}}">
+                                <figure class="image">
+                                    <img src="{{asset("front/images/".$category->image)}}" alt="" class="img-fluid">
+                                </figure>
+                                <div class="text">
+                                    <span class="text-uppercase">Chuck 70 collections</span>
+                                    <h3>{{$category->name}}</h3>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="{{route("Cocukurunler")}}">
-                        <figure class="image">
-                            <img src="{{asset("front/images/children.jpg")}}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Ayakkabı</span>
-                            <h3>Çocuk</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="{{route("Erkekurunler")}}">
-                        <figure class="image">
-                            <img src="{{asset("front/images/men.jpg")}}" alt="" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <span class="text-uppercase">Ayakkabı</span>
-                            <h3>Erkek</h3>
-                        </div>
-                    </a>
-                </div>
+
+                    @endforeach
+                @endif
+
             </div>
         </div>
     </div>
@@ -106,70 +91,28 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="nonloop-block-3 owl-carousel">
+                        @if(!empty($products) && $products->count()>0)
+                            @foreach($products as $product)
                         <div class="item">
                             <div class="block-4 text-center">
                                 <figure class="block-4-image">
-                                    <img src="{{asset("front/images/cloth_1.jpg")}}" alt="Image placeholder" class="img-fluid">
+                                    <a href="{{route("urundetay",$product->slug)}}"><img src="{{asset("front/images/".$product->image)}}" {{$product->id}} alt="Image placeholder" class="img-fluid"></a>
                                 </figure>
                                 <div class="block-4-text p-4">
-                                    <h3><a href="#">Tank Top</a></h3>
-                                    <p class="mb-0">Finding perfect t-shirt</p>
-                                    <p class="text-primary font-weight-bold">$50</p>
+                                    <h3><a href="{{route("urundetay",$product->slug)}}">{{$product->name}}</a></h3>
+                                    <p class="mb-0">{{$product->content}}</p>
+                                    <p class="text-primary font-weight-bold">{{$product->price}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{asset("front/images/shoe_1.jpg")}}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Corater</a></h3>
-                                    <p class="mb-0">Finding perfect products</p>
-                                    <p class="text-primary font-weight-bold">$50</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{asset("front/images/cloth_2.jpg")}}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Polo Shirt</a></h3>
-                                    <p class="mb-0">Finding perfect products</p>
-                                    <p class="text-primary font-weight-bold">$50</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{asset("front/images/cloth_3.jpg")}}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                                    <p class="mb-0">Finding perfect products</p>
-                                    <p class="text-primary font-weight-bold">$50</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="block-4 text-center">
-                                <figure class="block-4-image">
-                                    <img src="{{asset("front/images/shoe_1.jpg")}}" alt="Image placeholder" class="img-fluid">
-                                </figure>
-                                <div class="block-4-text p-4">
-                                    <h3><a href="#">Corater</a></h3>
-                                    <p class="mb-0">Finding perfect products</p>
-                                    <p class="text-primary font-weight-bold">$50</p>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="site-section block-8">
@@ -181,7 +124,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-7 mb-5">
-                    <a href="#"><img src="{{asset("front/images/blog_1.jpg")}}" alt="Image placeholder" class="img-fluid rounded"></a>
+                    <a href="#"><img src="{{asset("front/images/10.jpeg")}}" alt="Image placeholder" class="img-fluid rounded"></a>
                 </div>
                 <div class="col-md-12 col-lg-5 text-center pl-md-5">
                     <h6><a href="#">Tüm ürünlerimizde %50 indirim</a></h6>
