@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CustomAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,8 +37,10 @@ Route::group(["Middleware"=>"sitesetting"],function (){
     Route::post("/iletisim/kaydet",[AjaxController::class,"iletisimkaydet"])->name("iletisim.kaydet");
 
     Auth::routes();
-    Route::get("/cıkıs",[AjaxController::class,"logout"])->name("cıkıs");
-
+    Route::get("/login",[CustomAuthController::class,"login"])->name("login");
+    Route::get("/register",[CustomAuthController::class,"register"])->name("register");
 });
 
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
