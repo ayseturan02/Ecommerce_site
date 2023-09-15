@@ -35,5 +35,9 @@ Route::group(["Middleware"=>"sitesetting"],function (){
     Route::get("/iletişim",[PageController::class,"iletisim"])->name("iletisim");
     Route::post("/iletisim/kaydet",[AjaxController::class,"iletisimkaydet"])->name("iletisim.kaydet");
 
+    Auth::routes();
+    Route::get("/cıkıs",[AjaxController::class,"logout"])->name("cıkıs");
+
 });
+
 
