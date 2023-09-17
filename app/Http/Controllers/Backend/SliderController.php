@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\Slider;
+use ImageResize;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SliderController extends Controller
 {
@@ -35,9 +38,23 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-        //
+        if($request->hasFile("image")){
+           $resim=$request->file("image");
+           $dosyadi=time()."-".Str::slug($request->name).".".$resim->getClientOriginalExtension();
+           $resim->move(public_path("front/images/",$dosyadi));
+         //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
+        }
+
+        Slider::create([
+            "name"=>$request->name,
+            "content"=>$request->content,
+            "link"=>$request->link,
+            "status"=>$request->status,
+            "image"=>$dosyadi ?? NULL,
+        ]);
+        return back()->withSuccess("başarıyla oluşturuldu");
     }
 
     /**
