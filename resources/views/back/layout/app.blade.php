@@ -199,12 +199,12 @@
      <!-- partial -->
         @include("back.inc.sidebar")
         <div class="main-panel">
-             @yield("content")
-            <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html --
+
+            <div class="content-wrapper">
+                @yield("content")
+            </div>
 
             @include("back.inc.footer")
-            <!-- partial -->
         </div>
         <!-- main-panel ends -->
     </div>
