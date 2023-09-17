@@ -26,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view("back.pages.slider.ccreate");
+        return view("back.pages.slider.create");
     }
 
     /**

@@ -8,7 +8,7 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
     Route::get("/",[DashboardController::class,"index"])->name("panel");
 
     Route::get("/slider",[SliderController::class,"index"])->name("slider.index");
-    Route::post("/slider/ekle",[SliderController::class,"create"])->name("slider.create");
+    Route::get("/slider/ekle",[SliderController::class,"create"])->name("slider.create");
     Route::get("/slider/{id}/edit",[SliderController::class,"edit"])->name("slider.edit");
     Route::post("/slider/store",[SliderController::class,"store"])->name("slider.store");
     Route::put("/slider/{id}/update",[SliderController::class,"update"])->name("slider.update");
