@@ -47,9 +47,12 @@
 
                     <div class="form-group">
                         <label for="durum">Durum</label>
+                        @php
+                        $status =$slider->status ?? "1";
+                        @endphp
                         <select id="link" name="status">
-                            <option value="1" selected>Aktif</option>
-                            <option value="0">Pasif</option>
+                            <option value="1" {{$status == "1" ?? "selected"}} >Aktif</option>
+                            <option value="0" {{$status == "0" ?? "selected"}} >Pasif</option>
                         </select>
                     </div>
 

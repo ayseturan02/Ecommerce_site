@@ -31,7 +31,7 @@
                                 <td>{{$slider->link}}12 May 2017</td>
                                 <td><label class="badge badge-{{$slider->status=="1" ? "success" : "danger"}}">{{$slider->status=="1" ? "aktif" : "pasif"}}</label></td>
                                 <td class="d-flex">
-                                    <a href="{{route("panel.slider.edit",$slider->id)}}" class="btn btn-primary mr-2">düzenle</a>
+                                    <a href="{{route("panel.slider.update",$slider->id)}}" class="btn btn-primary mr-2">düzenle</a>
                                   <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
                                       @method("DELETE")
                                       <button  type="submit"  class="btn btn-danger">sil</button>

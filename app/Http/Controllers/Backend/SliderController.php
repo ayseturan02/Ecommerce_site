@@ -29,6 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
+
         return view("back.pages.slider.create");
     }
 
@@ -43,7 +44,7 @@ class SliderController extends Controller
         if($request->hasFile("image")){
            $resim=$request->file("image");
            $dosyadi=time()."-".Str::slug($request->name).".".$resim->getClientOriginalExtension();
-           $resim->move(public_path("front/images/",$dosyadi));
+           $resim->move(public_path("front/images/".$dosyadi));
          //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
         }
 
@@ -74,11 +75,24 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(SliderRequest $request ,$id)
     {
-        $slider=Slider::where("id",$id)->first();
-        return view("back.pages.slider.edit",compact("slider"));
+        if($request->hasFile("image")){
+            $resim=$request->file("image");
+            $dosyadi=time()."-".Str::slug($request->name).".".$resim->getClientOriginalExtension();
+            $resim->move(public_path("front/images/".$dosyadi));
+            //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
+        }
 
+        Slider::where("id",$id)->update([
+            "name"=>$request->name,
+            "content"=>$request->content,
+            "link"=>$request->link,
+            "status"=>$request->status,
+            "image"=>$dosyadi ?? NULL,
+            $id->save(),
+        ]);
+        return back()->withSuccess("başarıyla güncellendi");
     }
 
     /**
@@ -90,7 +104,10 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $slider=Slider::where("id",$id)->first();
+        return view("back.pages.slider.edit",compact("slider"));
+
     }
 
     /**
