@@ -11,7 +11,7 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
     Route::get("/slider/ekle",[SliderController::class,"create"])->name("slider.create");
     Route::get("/slider/{id}/edit",[SliderController::class,"edit"])->name("slider.edit");
     Route::post("/slider/store",[SliderController::class,"store"])->name("slider.store");
-    Route::get("/slider/{id}/update",[SliderController::class,"update"])->name("slider.update");
+    Route::put("/slider/{id}/update",[SliderController::class,"update"])->name("slider.update");
     Route::delete("/slider/{id}/destroy",[SliderController::class,"destroy"])->name("slider.destroy");
 
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
+use App\Models\Photo;
 use App\Models\Slider;
 use ImageResize;
 use Illuminate\Http\Request;
@@ -116,8 +117,12 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $slider = Slider::find($id);
+        if (isset($slider)) {
+            $slider->destroy();
+        }
+        return redirect()->route("panel.slider.index");
     }
 }
