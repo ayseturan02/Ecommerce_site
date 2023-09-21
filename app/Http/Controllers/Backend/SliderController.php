@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
-use App\Models\Photo;
 use App\Models\Slider;
-use ImageResize;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class SliderController extends Controller
@@ -15,23 +12,12 @@ class SliderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         $sliders=Slider::all();
         return view("back.pages.slider.index",compact("sliders"));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
-
-        return view("back.pages.slider.create");
     }
 
     /**
@@ -74,12 +60,12 @@ class SliderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(SliderRequest $request ,$id)
+    public function edit(string $id)
     {
         $slider=Slider::where("id",$id)->first();
-        return back()->withSuccess("başarıyla güncellendi");
+        return view("back.pages.slider.edit",compact("slider"));
     }
 
     /**
@@ -89,26 +75,38 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($request, $id)
+    public function update(SliderRequest $request, $id)
     {
+        if($request->hasFile("image")){
+            $resim=$request->file("image");
+            $dosyadi=time()."-".Str::slug($request->name).".".$resim->getClientOriginalExtension();
+            $resim->move(public_path("front/images/".$dosyadi));
+            //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
+        }
 
-        $slider=Slider::where("id",$id)->first();
-        return view("back.pages.slider.edit",compact("slider"));
-
+        Slider::where("id",$id)->update([
+            "name"=>$request->name,
+            "content"=>$request->content,
+            "link"=>$request->link,
+            "status"=>$request->status,
+            "image"=>$dosyadi ?? NULL,
+        ]);
+        return back()->withSuccess("başarıyla güncellendi");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $slider = Slider::find($id);
-        if (isset($slider)) {
-            $slider->destroy();
+        $slider = Slider::where("id",$id)->firstOrFail();
+        if (!empty($slider->image)) {
+            unlink($slider->image);
         }
-        return redirect()->route("panel.slider.index");
+        $slider->delete();
+        return back()->withSuccess("Başarıyla Silindi");
     }
 }

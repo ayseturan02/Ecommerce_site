@@ -35,6 +35,11 @@
                         @method("PUT")
                     @endif
                     <div class="form-group">
+                        <div class="input-group col-xs-12">
+                   <img src="{{asset($slider->image ?? "img/resimyok.web")}}" alt="" >
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>Resim</label>
                         <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
