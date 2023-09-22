@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset("backend/template/js/select.dataTables.min.css")}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+
+    <link href="{{asset("backend/template/css/bootstrap-toggle.min.css")}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("backend/template/css/vertical-layout-light/style.css")}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset("backend/template/images/favicon.png")}}" />
@@ -235,6 +237,9 @@
 
 <script src="{{asset("backend/template/js/file-upload.js")}}"></script>
 <!-- End custom js for this page-->
+
+<script src="{{asset("backend/template/js/bootstrap-toggle.min.js")}}"></script>
+
 </body>
 
 </html>

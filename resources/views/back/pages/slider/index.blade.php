@@ -29,7 +29,14 @@
                                 <td>{{$slider->name}}</td>
                                 <td>{{$slider->content ?? ""}}</td>
                                 <td>{{$slider->link}}12 May 2017</td>
-                                <td><label class="badge badge-{{$slider->status=="1" ? "success" : "danger"}}">{{$slider->status=="1" ? "aktif" : "pasif"}}</label></td>
+                                <td><label class="badge badge-{{$slider->status=="1" ? "success" : "danger"}}">{{$slider->status=="1" ? "aktif" : "pasif"}}</label>
+                            <div class="checkbox">
+                                   <label>
+                                       <input type="checkbox" class="" data-toggle="toggle">
+                                       Option one is enabled
+                                   </label>
+                               </div>
+                                </td>
                                 <td class="d-flex">
                                     <a href="{{route("panel.slider.edit",$slider->id)}}" class="btn btn-primary mr-2">düzenle</a>
                                   <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
