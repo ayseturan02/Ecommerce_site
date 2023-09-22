@@ -26,22 +26,41 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function create(){
+        return view("back.pages.slider.edit");
+    }
+
+
+
+
     public function store(SliderRequest $request)
     {
+        $slider = new Slider();
+        $slider->name=$request->name;
+        $slider->content=$request->content;
+        $slider->link=$request->link;
+        $slider->status=$request->status;
+        $slider->image=$request->image;
         if($request->hasFile("image")){
-           $resim=$request->file("image");
-           $dosyadi=time()."-".Str::slug($request->name).".".$resim->getClientOriginalExtension();
-           $resim->move(public_path("front/images/".$dosyadi));
+            $path = public_path("front/images/");
+            $name = Str::random(10);
+            $file = $request->file("image");
+            $name .= $name . $file->getClientOriginalName();
+            $file->move($path, $name);
+            $slider->image = $name;
          //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
         }
+        $slider->save();
 
+        /*
         Slider::create([
             "name"=>$request->name,
             "content"=>$request->content,
             "link"=>$request->link,
             "status"=>$request->status,
-            "image"=>$dosyadi ?? NULL,
-        ]);
+            "image"=>$image ?? NULL,
+        ]); */
         return back()->withSuccess("başarıyla oluşturuldu");
     }
 
@@ -103,9 +122,11 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slider::where("id",$id)->firstOrFail();
-        if (!empty($slider->image)) {
-            unlink($slider->image);
-        }
+       if (file_exists($slider->image)){
+           if (!empty($slider->image)) {
+               unlink($slider->image);
+           }
+       }
         $slider->delete();
         return back()->withSuccess("Başarıyla Silindi");
     }

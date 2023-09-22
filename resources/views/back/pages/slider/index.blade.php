@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h4 class="card-title">anasayfa</h4>
                     <p class="card-description">
-                       <a href="{{route("panel.slider.edit")}}" class="btn btn-primary">oluştur</a>
+                       <a href="{{route("panel.slider.create")}}" class="btn btn-primary">oluştur</a>
                     </p>
                     <div class="table-responsive">
                         <table class="table">
@@ -33,6 +33,7 @@
                                 <td class="d-flex">
                                     <a href="{{route("panel.slider.edit",$slider->id)}}" class="btn btn-primary mr-2">düzenle</a>
                                   <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
+                                      @csrf
                                       @method("DELETE")
                                       <button  type="submit"  class="btn btn-danger">sil</button>
                                   </form>

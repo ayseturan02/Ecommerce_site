@@ -15,7 +15,7 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{route("panel.slider.index")}}">Slider</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route("panel.slider.edit",$slider->id)}}">Slider Ekle</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route("panel.slider.create")}}">Slider Ekle</a></li>
                 </ul>
             </div>
         </li>
