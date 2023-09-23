@@ -14,4 +14,7 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
     Route::put("/slider/{id}/update",[SliderController::class,"update"])->name("slider.update");
     Route::delete("/slider/{id}/destroy",[SliderController::class,"destroy"])->name("slider.destroy");
 
+    Route::post("/slider/status/update",[SliderController::class,"status"])->name("slider.status");
+
+
 });
