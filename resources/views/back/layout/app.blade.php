@@ -6,18 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>yönetici panel</title>
-    <!-- plugins:css -->
+
     <link rel="stylesheet" href="{{asset("backend/template/vendors/feather/feather.css")}}">
     <link rel="stylesheet" href="{{asset("backend/template/vendors/ti-icons/css/themify-icons.css")}}">
     <link rel="stylesheet" href="{{asset("backend/template/vendors/css/vendor.bundle.base.css")}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{asset("backed/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css")}}">
+    <link rel="stylesheet" href="{{asset("backend/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css")}}">
     <link rel="stylesheet" href="{{asset("backend/template/vendors/ti-icons/css/themify-icons.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("backend/template/js/select.dataTables.min.css")}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-
+    <link rel="stylesheet" href="{{asset("backend/template/css/alertify.min.css")}}"/>
+    <link rel="stylesheet" href="{{asset("backend/template/css/default.min.css")}}"/>
+    <link rel="stylesheet" href="{{asset("backend/template/css/themes/bootstrap.min.css")}}"/>
     <link href="{{asset("backend/template/css/bootstrap-toggle.min.css")}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("backend/template/css/vertical-layout-light/style.css")}}">
     <!-- endinject -->
@@ -215,6 +217,8 @@
 <!-- container-scroller -->
 
 <!-- plugins:js -->
+<script src="{{asset("backend/template/js/jquery.min.js")}}"></script>
+
 <script src="{{asset("backend/template/vendors/js/vendor.bundle.base.js")}}"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
@@ -239,7 +243,9 @@
 <!-- End custom js for this page-->
 
 <script src="{{asset("backend/template/js/bootstrap-toggle.min.js")}}"></script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
+@yield("customjs")
 </body>
 
 </html>
