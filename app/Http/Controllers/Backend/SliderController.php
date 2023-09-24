@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use App\Models\Slider;
-use http\Env\Request;
+use App\Http\Requests;
 use Illuminate\Support\Str;
 
 class SliderController extends Controller
@@ -132,10 +132,10 @@ class SliderController extends Controller
         return back()->withSuccess("Başarıyla Silindi");
     }
 
-    public function status(Request $request){
+    public function status(Request  $request){
         $update= $request->statu;
-        $updatecheck=$request==true ? "aktif":"pasif";
-        Slider::where("id",$request->id)->update(["status"=>$update]);
-        return response(["error"=>false,"status"=>$updatecheck]);
+        $updatecheck=$update=="false" ? "0":"1";
+        Slider::where("id",$request->id)->update(["status"=>$updatecheck]);
+        return response(["error"=>false,"status"=>$update]);
     }
 }

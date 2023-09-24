@@ -44,6 +44,8 @@
                                       @method("DELETE")
                                       <button  type="submit"  class="btn btn-danger">sil</button>
                                   </form>
+                                    <button  type="button"  class="silbtn btn-danger">sil</button>
+
                                 </td>
                             </tr>
                            @endforeach
