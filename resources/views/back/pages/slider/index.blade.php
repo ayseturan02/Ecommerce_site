@@ -24,7 +24,7 @@
                             <tbody>
                             @if(!empty($sliders) && $sliders->count() > 0)
                            @foreach($sliders as $slider)
-                           <tr>
+                           <tr class="item" item-id="{{$slider->id}}">
                                 <td class="py-1"><img src="{{asset("front/images/".$slider->image)}}" alt="image/"></td>
                                 <td>{{$slider->name}}</td>
                                 <td>{{$slider->content ?? ""}}</td>
@@ -39,11 +39,11 @@
                                 </td>
                                 <td class="d-flex">
                                     <a href="{{route("panel.slider.edit",$slider->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                  <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
+                               {{--  <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
                                       @csrf
                                       @method("DELETE")
                                       <button  type="submit"  class="btn btn-danger">sil</button>
-                                  </form>
+                                  </form> --}}
                                     <button  type="button"  class="silbtn btn-danger">sil</button>
 
                                 </td>
@@ -61,7 +61,7 @@
 @section("customjs")
 <script>
 
- $(document).on("change",".durum",function(e){
+ $(document).on("change",".item",function(e){
         id=$(this).closest(".checkbox").attr("item-id");
         statu=$(this).prop("checked");
         $.ajax({
@@ -83,5 +83,34 @@
             }
         });
  });
+
+
+  $(document).on("click",".silBtn",function(e) {
+      e.preventDefault();
+      alertify.confirm("Silmek istediğinize emin misiniz?",
+          function(){
+              id=$(this).closest(".checkbox").attr("item-id");
+              $.ajax({
+                  headers:{
+                      "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
+                  },
+                  type:"DELETE",
+                  url:"{{route('panel.slider.destroy')}}",
+                  data:{
+                      id:id,
+                  },
+                  success: function(response){
+                      if(response.error == "false"){
+                          alertify.success("Başarıyla silindi");
+                      }else{
+                          alertify.error("bir hata oluştu")
+                      }
+                  }
+              });
+          },
+          function(){
+              alertify.error('Silme İptal Edildi');
+          });
+  });
 </script>
 @endsection

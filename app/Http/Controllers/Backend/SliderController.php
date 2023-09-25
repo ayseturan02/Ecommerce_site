@@ -120,9 +120,9 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $slider = Slider::where("id",$id)->firstOrFail();
+        $slider = Slider::where("id",$request->id)->firstOrFail();
        if (file_exists($slider->image)){
            if (!empty($slider->image)) {
                unlink($slider->image);
