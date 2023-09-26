@@ -44,7 +44,7 @@
                                       @method("DELETE")
                                       <button  type="submit"  class="btn btn-danger">sil</button>
                                   </form> --}}
-                                    <button  type="button"  class="silbtn btn-danger">sil</button>
+                                    <button  type="button"  class="silbtn btn btn-danger">sil</button>
 
                                 </td>
                             </tr>
@@ -62,7 +62,7 @@
 <script>
 
  $(document).on("change",".item",function(e){
-        id=$(this).closest(".checkbox").attr("item-id");
+        id=$(this).closest(".item").attr("item-id");
         statu=$(this).prop("checked");
         $.ajax({
             headers:{
@@ -85,11 +85,12 @@
  });
 
 
-  $(document).on("click",".silBtn",function(e) {
+  $(document).on("click",".silbtn",function(e) {
       e.preventDefault();
-      alertify.confirm("Silmek istediğinize emin misiniz?",
+      var item=$(this).closest(".item");
+      id=item.attr("item-id");
+      alertify.confirm("Silmek istediğinize emin misiniz?","Silmek istediğinize emin misiniz?",
           function(){
-              id=$(this).closest(".checkbox").attr("item-id");
               $.ajax({
                   headers:{
                       "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
@@ -100,8 +101,10 @@
                       id:id,
                   },
                   success: function(response){
-                      if(response.error == "false"){
-                          alertify.success("Başarıyla silindi");
+
+                      if(response.error == false){
+                          item.remove();
+                          alertify.success(response.message);
                       }else{
                           alertify.error("bir hata oluştu")
                       }

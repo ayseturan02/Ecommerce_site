@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use App\Models\Slider;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class SliderController extends Controller
@@ -118,7 +119,7 @@ class SliderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
@@ -129,7 +130,11 @@ class SliderController extends Controller
            }
        }
         $slider->delete();
-        return back()->withSuccess("Başarıyla Silindi");
+        return response([
+            "error"=>False,
+            "message"=>"başarıyla silindi"
+        ]);
+
     }
 
     public function status(Request  $request){
