@@ -18,4 +18,7 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
     Route::post("/slider/status/update",[SliderController::class,"status"])->name("slider.status");
 
     Route::get("/urunler",[ProductController::class,"index"])->name("urunler.index");
+    Route::get("/urunler/ekle",[ProductController::class,"create"])->name("urunler.create");
+    Route::post("/urunler/store",[ProductController::class,"store"])->name("urunler.store");
+
 });

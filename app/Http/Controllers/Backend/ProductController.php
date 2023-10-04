@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view("back.pages.urunler.create");
     }
 
     /**
@@ -37,7 +38,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products=new Product();
+        $products->name=$request->name;
+        $products->slug=$request->slug;
+        $products->category_id=$request->category_id;
+        $products->short_text=$request->short_text;
+        $products->price=$request->price;
+        $products->size=$request->size;
+        $products->color=$request->color;
+        $products->qty=$request->qty;
+        $products->status=$request->status;
+        $products->content=$request->content;
+        $products->image=$request->image;
+        if($request->hasFile("image")){
+            $path = public_path("front/images/");
+            $name = Str::random(10);
+            $file = $request->file("image");
+            $name .= $name . $file->getClientOriginalName();
+            $file->move($path, $name);
+            $products->image = $name;
+            //  $resim = ImageResize::make($resim)->save(public_path("front/images/".$dosyadi));
+        }
+        $products->save();
+        return redirect()->route("panel.urunler.index");
     }
 
     /**
@@ -82,6 +105,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

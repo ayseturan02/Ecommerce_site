@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h4 class="card-title">anasayfa</h4>
                     <p class="card-description">
-                        <a href="{{route("panel.slider.create")}}" class="btn btn-primary">Ürün Ekle</a>
+                        <a href="{{route("panel.urunler.create")}}" class="btn btn-primary">Ürün Ekle</a>
                     </p>
                     <div class="table-responsive">
                         <table class="table">
