@@ -109,7 +109,7 @@
                                     "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
                                 },
                                 type:"DELETE",
-                                url:"{{route('panel.slider.destroy')}}",
+                                url:"{{route('panel.urunler.destroy')}}",
                                 data:{
                                     id:id,
                                 },

@@ -103,8 +103,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $products = Product::where("id",$request->id)->firstOrFail();
+        if(isset($products)){
+            $products->delete();
+        }
+        $products->delete();
+        return response([
+            "error"=>False,
+            "message"=>"başarıyla silindi"
+        ]);
 
+    }
+    public function status(Request  $request){
+        $update= $request->statu;
+        $updatecheck=$update=="false" ? "0":"1";
+        Product::where("id",$request->id)->update(["status"=>$updatecheck]);
+        return response(["error"=>false,"status"=>$update]);
     }
 }

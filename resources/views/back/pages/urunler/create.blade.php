@@ -30,7 +30,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">kategori no</label>
                                 <div class="col-sm-9" id="category_id" name="category_id" >
-                                    <select class="form-control">
+                                    <select class="form-control"  id="category_id" name="category_id" >
                                         <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -43,7 +43,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">kategori</label>
                                 <div class="col-sm-9" id="short_text" name="short_text">
-                                    <select class="form-control">
+                                    <select class="form-control" id="short_text" name="short_text">
                                         <option>kadın</option>
                                         <option>erkek</option>
                                         <option>cocuk</option>
