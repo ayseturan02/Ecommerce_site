@@ -75,7 +75,7 @@
                 statu:statu
             },
             success: function(response){
-                if(response.status=="true"){
+                if(response.status==="true"){
                     alertify.success("Durum Aktif Edildi");
                 }else{
                     alertify.error("Durum Pasif Edildi");
@@ -102,7 +102,7 @@
                   },
                   success: function(response){
 
-                      if(response.error == false){
+                      if(response.error === false){
                           item.remove();
                           alertify.success(response.message);
                       }else{

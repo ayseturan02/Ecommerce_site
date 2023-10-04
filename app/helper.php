@@ -9,3 +9,9 @@ if (!function_exists("dosyasil")){
         }
     }
 }
+
+if (!function_exists("resimyukle")){
+    function resimyukle($name,$yol,$image){
+
+    }
+}

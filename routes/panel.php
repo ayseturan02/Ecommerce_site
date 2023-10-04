@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\ProductController;
 
 Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],function (){
     Route::get("/",[DashboardController::class,"index"])->name("panel");
@@ -16,5 +17,5 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
 
     Route::post("/slider/status/update",[SliderController::class,"status"])->name("slider.status");
 
-
+    Route::get("/urunler",[ProductController::class,"index"])->name("urunler.index");
 });
