@@ -29,8 +29,8 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
     Route::get("/",[AboutController::class,"index"])->name("about.index");
     Route::get("/about/ekle",[AboutController::class,"create"])->name("about.create");
     Route::get("/about/{id}/edit",[AboutController::class,"edit"])->name("about.edit");
-    Route::get("/about/store",[AboutController::class,"store"])->name("about.store");
-    Route::get("/about/{id}/update",[AboutController::class,"update"])->name("about.update");
-    Route::get("/about/destroy",[AboutController::class,"destroy"])->name("about.destroy");
+    Route::post("/about/store",[AboutController::class,"store"])->name("about.store");
+    Route::post("/about/{id}/update",[AboutController::class,"update"])->name("about.update");
+    Route::delete("/about/destroy",[AboutController::class,"destroy"])->name("about.destroy");
     Route::post("/about/status/update",[AboutController::class,"status"])->name("about.status");
 });

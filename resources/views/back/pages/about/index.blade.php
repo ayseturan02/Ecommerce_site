@@ -17,10 +17,6 @@
                                         <td>
                                             {{$about->image}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
                                     </tr>
                                     <tr class="table-info">
                                         <td>
@@ -28,10 +24,6 @@
                                         </td>
                                         <td>
                                             {{$about->name}}
-                                        </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
                                     </tr>
                                     <tr class="table-danger">
@@ -41,10 +33,6 @@
                                         <td>
                                             {{$about->content}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
                                     </tr>
                                     <tr class="table-success">
                                         <td>
@@ -52,10 +40,6 @@
                                         </td>
                                         <td>
                                             {{$about->text_1_icon}}
-                                        </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
                                     </tr>
                                     <tr class="table-primary">
@@ -65,10 +49,6 @@
                                         <td>
                                             {{$about->text_1}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
                                     </tr>
                                     <tr class="table-warning">
                                         <td>
@@ -76,10 +56,6 @@
                                         </td>
                                         <td>
                                             {{$about->text_1_content}}
-                                        </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
                                     </tr>
                                     <tr class="table-success">
@@ -89,10 +65,7 @@
                                         <td>
                                             {{$about->text_2_icon}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
+
                                     </tr>
                                     <tr class="table-primary">
                                         <td>
@@ -100,10 +73,6 @@
                                         </td>
                                         <td>
                                             {{$about->text_2}}
-                                        </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
                                     </tr>
                                     <tr class="table-warning">
@@ -113,10 +82,6 @@
                                         <td>
                                             {{$about->text_2_content}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
                                     </tr>
                                     <tr class="table-success">
                                         <td>
@@ -124,10 +89,6 @@
                                         </td>
                                         <td>
                                             {{$about->text_3_icon}}
-                                        </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
                                     </tr>
                                     <tr class="table-primary">
@@ -137,10 +98,6 @@
                                         <td>
                                             {{$about->text_3}}
                                         </td>
-                                        <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
-                                            <button  type="button"  class="silbtn btn btn-danger">sil</button>
-                                        </td>
                                     </tr>
                                     <tr class="table-warning">
                                         <td>
@@ -149,15 +106,17 @@
                                         <td>
                                             {{$about->text_3_content}}
                                         </td>
+                                    </tr>
+
                                         <td>
-                                            <a href="{{route("panel.urunler.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
+                                            <a href="{{route("panel.about.edit",$about->id)}}" class="btn btn-primary mr-2">düzenle</a>
                                             <button  type="button"  class="silbtn btn btn-danger">sil</button>
                                         </td>
-                                    </tr>
 
 
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -181,7 +140,7 @@
                             "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
                         },
                         type:"POST",
-                        url:"{{route('panel.urunler.status')}}",
+                        url:"{{route('panel.about.status')}}",
                         data:{
                             id:id,
                             statu:statu
@@ -208,7 +167,7 @@
                                     "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
                                 },
                                 type:"DELETE",
-                                url:"{{route('panel.urunler.destroy')}}",
+                                url:"{{route('panel.about.destroy')}}",
                                 data:{
                                     id:id,
                                 },
