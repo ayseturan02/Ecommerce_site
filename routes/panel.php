@@ -19,7 +19,11 @@ Route::group(["Middleware"=>"panelsetting","prefix"=>"panel","as"=>"panel."],fun
 
     Route::get("/urunler",[ProductController::class,"index"])->name("urunler.index");
     Route::get("/urunler/ekle",[ProductController::class,"create"])->name("urunler.create");
+    Route::get("/urunler/{id}/edit",[ProductController::class,"edit"])->name("urunler.edit");
     Route::post("/urunler/store",[ProductController::class,"store"])->name("urunler.store");
+    Route::put("/urunler/{id}/update",[ProductController::class,"update"])->name("urunler.update");
     Route::delete("/urunler/destroy",[ProductController::class,"destroy"])->name("urunler.destroy");
+
+    Route::post("/slider/status/update",[ProductController::class,"status"])->name("urunler.status");
 
 });

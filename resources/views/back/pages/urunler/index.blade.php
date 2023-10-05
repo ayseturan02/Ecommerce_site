@@ -51,7 +51,7 @@
                                             </div>
                                         </td>
                                         <td class="d-flex">
-                                            <a href="{{route("panel.slider.edit",$product->id)}}" class="btn btn-primary mr-2">düzenle</a>
+                                            <a href="{{route("panel.urunler.edit",$product->id)}}" class="btn btn-primary mr-2">düzenle</a>
                                             {{--  <form action="{{route("panel.slider.destroy",$slider->id)}}" method="POST">
                                                    @csrf
                                                    @method("DELETE")
@@ -82,7 +82,7 @@
                             "X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr('content')
                         },
                         type:"POST",
-                        url:"{{route('panel.slider.status')}}",
+                        url:"{{route('panel.urunler.status')}}",
                         data:{
                             id:id,
                             statu:statu
