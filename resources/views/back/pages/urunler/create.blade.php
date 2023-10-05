@@ -125,8 +125,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" href="{{route("panel.urunler.index")}}" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <button type="submit" href="{{route("panel.urunler.index")}}" class="btn btn-primary mr-2">Oluştur</button>
                 </form>
             </div>
         </div>

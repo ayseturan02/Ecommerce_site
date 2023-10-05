@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title">Ürün Ekle</h4>
                 @if(isset($products))
-                <form  action="{{route("panel.urunler.store")}}" class="form-sample" method="POST" enctype="multipart/form-data">
+                <form  action="{{route("panel.urunler.update",$products->id)}}" class="form-sample" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="id" name="id" value="{{$products->id }}">
                     <div class="row">
@@ -127,9 +127,10 @@
                         </div>
                     </div>
 
-                    <button type="submit" href="{{route("panel.urunler.index")}}" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <button type="submit" href="{{route("panel.urunler.index")}}" class="btn btn-primary mr-2">Düzenle</button>
                 </form>
+                @else
+                    sayılmaz
                 @endif
             </div>
         </div>
