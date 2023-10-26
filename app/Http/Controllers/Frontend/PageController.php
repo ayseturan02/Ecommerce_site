@@ -60,16 +60,16 @@ class PageController extends Controller
         return view("front.pages.contact");
     }
     public function erkekurunler(){
-        $products=Product::where("short_text","erkek")->get();
+        $products=Product::where("short_text","Erkek")->get();
         return view("front.pages.categories.man",compact("products"));
     }
     public function kadinurunler(){
-        $products=Product::where("short_text","kadın")->get();
+        $products=Product::where("short_text","Kadın")->get();
         return view("front.pages.categories.woman",compact("products"));
 
     }
     public function cocukurunler(){
-        $products=Product::where("short_text","cocuk")->get();
+        $products=Product::where("short_text","Cocuk")->get();
         return view("front.pages.categories.children",compact("products"));
     }
 
