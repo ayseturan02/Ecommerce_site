@@ -52,16 +52,6 @@
                         @if(!empty($categories) && $categories->count()>0)
                             @foreach($categories as $category)
                                 <li><a href="{{route($category->slug."urunler")}}">{{$category->name}}</a></li>
-                                {{--    <li><a href="#"></a></li>
-                                        <li><a href="#">Menu Three</a></li>
-                                        <li class="has-children">
-                                            <a href="#">sub menu</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Menu One</a></li>
-                                                <li><a href="#">Menu Two</a></li>
-                                                <li><a href="#">Menu Three</a></li>
-                                            </ul>
-                                        </li>  --}}
                             @endforeach
                         @endif
                     </ul>
